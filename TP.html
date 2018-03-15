@@ -128,12 +128,13 @@
         var xMesh = new Mesh("x-wing");
         xMesh.loadFromObjFile("data/x_wing.obj");
         //todo implémenter un dirLight (en bonus: avec de la specular / Phong) pour le x-wing
-        var xMat = new Material("xWingMat", "data/shader/directionalLight.vShader", "data/shader/default.fShader",
+        var xMat = new Material("xWingMat", "data/shader/directionalLight.vShader", "data/shader/specular.fShader",
                 function (mat) {
                     mat.uniforms["texture0"].texture = new Texture("data/x-wing.png");
                     mat.uniforms["lightDir"].value = lightDirection;
                     mat.uniforms["lightColor"].value = lightColor;
                     mat.uniforms["ambientColor"].value = ambientColor;
+                    mat.uniforms["lightSpecColor"].value = lightSpecColor;
                 });
         var xWingObject = new Object3D(xMesh, xMat);
 
